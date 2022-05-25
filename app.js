@@ -16,6 +16,7 @@ const { viewPollGetController } = require("./controller/viewPollGetController");
 const {
   viewPollPostController,
 } = require("./controller/viewPollPostController");
+const { notFoundController } = require("./controller/notFoundController");
 const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
@@ -31,6 +32,8 @@ app.get("/polls", viewAllPollsGetController);
 
 app.get("/polls/:id", viewPollGetController);
 app.post("/polls/:id", viewPollPostController);
+
+app.get("*", notFoundController);
 
 mongoose
   .connect("mongodb://localhost:27017/poll", { useNewUrlParser: true })
