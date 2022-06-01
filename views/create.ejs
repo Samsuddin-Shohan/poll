@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Simple Poll</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div>
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-md-6 offset-md-3 my-5">
+                    <div class="card card-body">
+                        <h3>Create a new Poll</h3>
+                        <form action="/create" method="post">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Enter Title</label>
+                              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Enter Description</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div id="options">
+                                <label for="exampleInputEmail1">Enter Your Options</label>
+                                <input type="text" class="form-control my-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Option1">
+                                <input type="text" class="form-control my-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Option 2">
+                            </div>
+                            <button id="add-more-option" class="btn btn-warning d-block my-2">Add more Options</button>
+                         
+                            
+                            <button type="submit"  class="btn btn-primary" value="Create Poll">Create Poll </button>
+                          </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>   
+    </div>
+    <script>
+      const optionButton = document.getElementById('add-more-option');
+      let optionCount = 3;
+      optionButton.addEventListener('click',(e)=>{
+        e.preventDefault();
+        console.log('cliked');
+        let options = document.getElementById('options');
+        let input = document.createElement('input');
+        input.className='form-control my-3';
+        input.type = 'text';
+        input.id = 'option'+(optionCount)
+        input.placeholder = 'Option '+ (optionCount++);
+        options.appendChild(input);
+      })
+    </script>
+  </body>
+</html>

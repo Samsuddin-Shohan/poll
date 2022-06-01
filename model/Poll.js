@@ -4,13 +4,22 @@ const pollSchema = new Schema({
   title: {
     type: String,
     required: true,
+    trim:true
   },
   description: {
     type: String,
     required: true,
+    trim:true
+  },
+  totoalVote:{
+    type:Number,
+    default:0
   },
   options: {
-    type: [String],
+    type: [{
+      name:String,
+      vote:Number
+    }],
   },
 });
 const Poll = model("Poll", pollSchema);
