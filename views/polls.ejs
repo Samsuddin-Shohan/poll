@@ -48,7 +48,12 @@
       </div>
     </nav>
     <div class="container my-5">
-      <h1 class="display-4 text-center">All Poll will be shown here</h1>
+      <ul class="list-group">
+       <% for(const poll of polls){ %>
+        <li class="list-group-item"><a href="/polls/:<%= poll._id %>"><%= poll.title %></a></li>
+      <% } %>
+
+
     </div>
   </body>
 </html>
