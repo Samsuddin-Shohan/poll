@@ -1,3 +1,3 @@
 exports.viewPollGetController = (req, res, next) => {
-  res.render("home");
+  res.render('home');
 };
