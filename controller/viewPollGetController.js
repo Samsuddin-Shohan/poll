@@ -9,6 +9,7 @@ exports.viewPollGetController = async (req, res, next) => {
     let options = [...poll.options];
     // console.log(options);
     let result = [];
+    console.log(poll);
     options.forEach((option) => {
       let percantage = (option.vote * 100) / poll.totalVote;
 
@@ -20,7 +21,7 @@ exports.viewPollGetController = async (req, res, next) => {
         ...option._doc,
         percantage: percantage ? percantage : 0,
       });
-      console.log(result);
+      // console.log(result);
     });
     res.render('singlePoll', { poll, result });
   } catch (e) {
